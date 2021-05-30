@@ -31,6 +31,8 @@ function getCoordinates(min, max) {
 }
 // console.log(getCoordinates(1, 3));
 
+
+// Функция для проверки максимальной длины строки
 function getStrLength(str, max) {
   if (str.length >= max) {
     console.log(true);
@@ -39,4 +41,4 @@ function getStrLength(str, max) {
     console.log(false);
   }
 }
-getStrLength('werqwersdfghjkl;', 10);
+getStrLength('werqwersdfghjkl', 10);
