@@ -30,3 +30,13 @@ function getCoordinates(min, max) {
 
 }
 // console.log(getCoordinates(1, 3));
+
+function getStrLength(str, max) {
+  if (str.length >= max) {
+    console.log(true);
+  }
+  if (str.length < max) {
+    console.log(false);
+  }
+}
+getStrLength('werqwersdfghjkl;', 10);
