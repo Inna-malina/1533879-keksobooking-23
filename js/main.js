@@ -4,7 +4,7 @@ function getRandomNumber(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   if (max <= min) {
-    return false;
+    throw new Error('max должно быть больше min на пять единиц');
   }
   //   return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
   return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум включается, минимум включается
@@ -14,25 +14,16 @@ getRandomNumber(3, 10);
 // Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно.
 // https://myrusakov.ru/js-random-numbers.html
 
-function getCoordinates(min, max) {
+function getCoordinates(min, max, decimalPoints) {
   min = Math.ceil(min);
   max = Math.floor(max);
 
   if (max <= min) {
-    return false;
+    throw new Error('max должно быть больше min на пять единиц');
   }
-  return Math.random() * (max - min) + min;
-}
-getCoordinates(1, 3);
+  let randomize = Math.random() * (max - min) + min;
+  // return Math.random() * (max - min) + min;
 
-
-// Функция для проверки максимальной длины строки
-function getStrLength(str, max) {
-  if (str.length >= max) {
-    return true;
-  }
-  if (str.length < max) {
-    return false;
-  }
+  return Number.parseFloat(randomize.toFixed(decimalPoints));
 }
-getStrLength('werqwersdfghjkl', 10);
+getCoordinates(1, 100, 25);
