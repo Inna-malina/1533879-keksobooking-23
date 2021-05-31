@@ -21,7 +21,7 @@ function getCoordinates(min, max, decimalPoints) {
   if (max <= min) {
     throw new Error('max должно быть больше min на пять единиц');
   }
-  let randomize = Math.random() * (max - min) + min;
+  const randomize = Math.random() * (max - min) + min;
   // return Math.random() * (max - min) + min;
 
   return Number.parseFloat(randomize.toFixed(decimalPoints));
