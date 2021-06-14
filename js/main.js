@@ -6,13 +6,8 @@ function getRandomNumber(min, max) {
   if (max <= min) {
     throw new Error('max должно быть больше min');
   }
-
-
-  //   return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
   return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум включается, минимум включается
 }
-
-
 
 // Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно.
 // https://myrusakov.ru/js-random-numbers.html
@@ -22,7 +17,7 @@ function getCoordinates(min, max, decimalPoints) {
   max = Math.floor(max);
 
   if (max <= min) {
-    // throw new Error('max должно быть больше min');
+    throw new Error('max должно быть больше min');
   }
 
   const randomize = Math.random() * (max - min) + min;
@@ -31,15 +26,12 @@ function getCoordinates(min, max, decimalPoints) {
 }
 
 
-
-let author = {
+const author = {
   avatar: `img/avatars/user${getRandomNumber(1,10)}.png`
 
 };
 
-console.log(author.avatar);
-
-let offer = {
+const offer = {
   title: 'Площадь помещения',
   address: `${location.lat}, ${location.lng}`, //строка — адрес предложения
   price: getRandomNumber(1000, 5000), //случайное целое число
@@ -52,11 +44,8 @@ let offer = {
   description: 'Описание помещения',
   photos: ['https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg', 'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg', 'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg'],
   location: {
-    lat: getCoordinates(35.65000, 35.70000, 25), //число с плавающей точкой — широта, случайное значение от 35.65000 до 35.70000
-    lng: getCoordinates(139.70000, 139.80000, 25) //число с плавающей точкой — долгота, случайное значение от 139.70000 до 139.80000
+    lat: getCoordinates(35.65000, 35.70000, 25), //число с плавающей точкой — широта
+    lng: getCoordinates(139.70000, 139.80000, 25) //число с плавающей точкой — долгота
   }
 
-
-
 };
-// console.log(offer.address);
