@@ -35,10 +35,16 @@ function images() {
 }
 
 //функция для выбора из массивов слуайного значения
-function randomElem(elem) {
+function getArrayRandElement(elem) {
   let rand = Math.floor(Math.random() * elem.length);
   return elem[rand];
 }
+
+const TITLE_LIST = [
+  'Название одно',
+  'Название второе',
+  'Название третье',
+];
 
 const CHECK_IN = [
   '12:00',
@@ -69,31 +75,95 @@ const FEATURES = [
   'conditioner'
 ];
 
+const DESCRIPTION = [
+  'Описание один',
+  'Описание два',
+  'Описание три'
+];
+
 const PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg'
 ];
 
-const author = {
-  avatar: `img/avatars/user${images()}.png`
-};
 
 
-const offer = {
-  title: 'Площадь помещения',
-  address: [location.lat, location.lng], //строка — адрес предложения
-  price: getRandomNumber(1000, 5000), //случайное целое число
-  type: randomElem(TYPE),
-  rooms: getRandomNumber(1, 7), //случайное целое число
-  guests: getRandomNumber(1, 100), //случайное целое число, кол-во гостей
-  checkin: randomElem(CHECK_IN),
-  checkout: randomElem(CHECK_OUT),
-  features: randomElem(FEATURES),
-  description: 'Описание помещения',
-  photos: randomElem(PHOTOS),
-  location: {
-    lat: getCoordinates(35.65000, 35.70000, 25), //число с плавающей точкой — широта
-    lng: getCoordinates(139.70000, 139.80000, 25) //число с плавающей точкой — долгота
+const createDescription = function (addNumber) {
+  const result = [];
+
+  for (let i = 1; i <= addNumber; i++) {
+    let imgNumber = '';
+    if (i == 10) {
+      imgNumber = `img/avatars/user${i}.png`;
+    } else {
+      imgNumber = `img/avatars/user${'0'+ i}.png`;
+    }
+    const locationX = Number(getCoordinates(35.65000, 35.70000, 25));
+    const locationY = Number(getCoordinates(139.70000, 139.80000, 25));
+
+
+    result.push({
+      'author': {
+        avatar: imgNumber,
+      },
+
+      'offer': {
+        'title': getArrayRandElement(TITLE_LIST),
+        'address': `${locationX}, ${locationY}`,
+        'price': getRandomNumber(1000, 5000),
+        'type': getArrayRandElement(TYPE),
+        'rooms': getRandomNumber(1, 7),
+        'guests': getRandomNumber(1, 100),
+        'checkin': getArrayRandElement(CHECK_IN),
+        'checkout': getArrayRandElement(CHECK_OUT),
+        'features': getArrayRandElement(FEATURES),
+        'description': getArrayRandElement(DESCRIPTION),
+        'photos': getArrayRandElement(PHOTOS),
+      },
+
+      'location': {
+        'lat': locationX,
+        'lng': locationY,
+      },
+
+    });
   }
+  return result;
 };
+
+createDescription(10);
+
+// const createAds = (adNumber) => {
+//   const result = [];
+
+//   for (let i = 1; i <= adNumber; i += 1) {
+
+//     const locationX = Number(getRandomNoninteger(LAT_MIN, LAT_MAX, LOCATION_DIGITS_AMOUNT));
+//     const locationY = Number(getRandomNoninteger(LNG_MIN, LNG_MAX, LOCATION_DIGITS_AMOUNT));
+
+//     result.push({
+//       'author': {
+//         'avatar': `img/avatars/user0${i}.png`,
+//       },
+//       'offer': {
+//         'title': getArrayRandElement(TITLE_LIST),
+//         'address': `${locationX}, ${locationY}`,
+//         'price': getRandomNumber(PRICE_MIN, PRICE_MAX),
+//         'type': getArrayRandElement(TYPE_LIST),
+//         'rooms': getRandomNumber(ROOMS_MIN, ROOMS_MAX),
+//         'guests': getRandomNumber(GUESTS_MIN, GUESTS_MAX),
+//         'checkin': getArrayRandElement(CHECKIN_LIST),
+//         'checkout': getArrayRandElement(CHECKOUT_LIST),
+//         'features': getArrayRandLength(FEATURES_LIST),
+//         'description': getArrayRandElement(DESCRIPTION_LIST),
+//         'photos': getArrayRandLength(PHOTOS_LIST),
+//       },
+//       'location': {
+//         'lat': locationX,
+//         'lng': locationY,
+//       },
+//     });
+//   }
+//   return result;
+// };
