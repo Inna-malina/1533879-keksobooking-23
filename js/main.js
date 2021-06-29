@@ -1,5 +1,9 @@
-import {
-  createDescription
-} from "../js/description.js";
+// import {
+//   createDescription
+// } from "../js/description.js";
 
-createDescription(10);
+import {
+  someFunction
+} from "../js/createcard.js";
+
+someFunction();

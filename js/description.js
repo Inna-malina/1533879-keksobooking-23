@@ -14,6 +14,7 @@ import {
   getArrayRandElement
 } from "../js/getRandom.js";
 
+
 const createDescription = function (addNumber) {
   const result = [];
 
@@ -53,9 +54,12 @@ const createDescription = function (addNumber) {
       },
 
     });
+
   }
   return result;
+
 };
+console.log(createDescription(1));
 
 export {
   createDescription
