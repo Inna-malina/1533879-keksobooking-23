@@ -30,8 +30,15 @@ function getArrayRandElement(elem) {
   return elem[rand];
 }
 
+function getRandomArraySlice(array) {
+  return array.slice(0, getRandomNumber(0, array.length - 1));
+}
+
+
 export {
   getRandomNumber,
   getCoordinates,
-  getArrayRandElement
+  getArrayRandElement,
+  getRandomArraySlice,
+
 };

@@ -1,5 +1,17 @@
 import {
-  createDescription
+  createDataBase
 } from "../js/description.js";
 
-createDescription(10);
+import {
+  createCard,
+  renderCard,
+  renderCards
+} from "../js/card.js";
+
+
+
+const map = document.querySelector('.map__canvas');
+const data = createDataBase(4);
+
+renderCard(map, createCard(data[0]));
+// renderCards(map, data);

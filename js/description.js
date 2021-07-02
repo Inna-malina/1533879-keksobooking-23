@@ -11,10 +11,13 @@ import {
 import {
   getRandomNumber,
   getCoordinates,
-  getArrayRandElement
-} from "../js/getRandom.js";
+  getArrayRandElement,
+  getRandomArraySlice,
 
-const createDescription = function (addNumber) {
+} from "../js/utils.js";
+
+
+const createDataBase = function (addNumber) {
   const result = [];
 
   for (let i = 1; i <= addNumber; i++) {
@@ -42,9 +45,9 @@ const createDescription = function (addNumber) {
         'guests': getRandomNumber(1, 100),
         'checkin': getArrayRandElement(CHECK_IN),
         'checkout': getArrayRandElement(CHECK_OUT),
-        'features': getArrayRandElement(FEATURES),
+        'features': getRandomArraySlice(FEATURES),
         'description': getArrayRandElement(DESCRIPTION),
-        'photos': getArrayRandElement(PHOTOS),
+        'photos': getRandomArraySlice(PHOTOS)
       },
 
       'location': {
@@ -53,10 +56,13 @@ const createDescription = function (addNumber) {
       },
 
     });
+
   }
   return result;
+
 };
 
+
 export {
-  createDescription
+  createDataBase
 };
