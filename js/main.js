@@ -8,6 +8,8 @@ import {
   renderCards
 } from "../js/card.js";
 
+
+
 const map = document.querySelector('.map__canvas');
 const data = createDataBase(4);
 
