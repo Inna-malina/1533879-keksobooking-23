@@ -1,9 +1,15 @@
-// import {
-//   createDescription
-// } from "../js/description.js";
+import {
+  createDataBase
+} from "../js/description.js";
 
 import {
-  someFunction
-} from "../js/createcard.js";
+  createCard,
+  renderCard,
+  renderCards
+} from "../js/card.js";
 
-someFunction();
+const map = document.querySelector('.map__canvas');
+const data = createDataBase(4);
+
+renderCard(map, createCard(data[0]));
+// renderCards(map, data);
