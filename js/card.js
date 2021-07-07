@@ -32,7 +32,7 @@ const renderFeatures = function (container, features) {
 };
 
 //ф-ция-генератор фотки из списка photos
-const renderImages = function (container) {
+const renderImages = function (container, photos) {
   container.innerHTML = '';
   container.src = getArrayRandElement(PHOTOS);
 };
