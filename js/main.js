@@ -8,19 +8,9 @@ import {
   renderCards
 } from "../js/card.js";
 
-import {
-  validateTitleInput,
-  validatePriceInput,
-  validateRoom
-} from "../js/form.js";
 
 const map = document.querySelector('.map__canvas');
 const data = createDataBase(4);
 
 renderCard(map, createCard(data[0]));
 // renderCards(map, data);
-
-
-validateTitleInput();
-validatePriceInput();
-validateRoom();
