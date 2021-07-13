@@ -41,6 +41,7 @@ const RoomsValue = {
   3: [1, 2, 3],
   100: [0],
 };
+const room = document.querySelector('#room_number');
 
 const rooms = document.querySelectorAll("#room_number option");
 const onRoomsNumberSelect = function (peopleAmount) {
@@ -60,20 +61,8 @@ const onRoomsNumberSelect = function (peopleAmount) {
   });
 };
 
-onRoomsNumberSelect(rooms.value);
-// ---------------------------------------------------
-// const room = document.querySelector('#room_number');
-// const capacity = document.querySelector('#capacity');
+room.addEventListener('change', function (event) {
+  onRoomsNumberSelect(event.target.value);
+});
 
-
-// room.addEventListener('change', function () {
-//   if (room.value == "1") {
-//     capacity.value = "1";
-//   } else if (room.value == "2") {
-//     capacity.value = "2";
-//   } else if (room.value == "3") {
-//     capacity.value = "3";
-//   } else {
-//     capacity.value = "0";
-//   }
-// });
+onRoomsNumberSelect(room.value);
