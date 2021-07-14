@@ -19,5 +19,5 @@ const data = createDataBase(4);
 renderCard(map, createCard(data[0]));
 // renderCards(map, data);
 
-mapDisabled();
-formDisabled();
+// mapDisabled();
+// formDisabled();
