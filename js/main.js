@@ -8,16 +8,10 @@ import {
   renderCards
 } from "../js/card.js";
 
-import {
-  mapDisabled,
-  formDisabled
-} from "../js/form.js";
 
-const map = document.querySelector('.map__canvas');
-const data = createDataBase(4);
 
-renderCard(map, createCard(data[0]));
+const map = document.querySelector('#mapid');
+const data = createDataBase(5);
+// createCard();
+// renderCard(map, createCard(data[5]));
 // renderCards(map, data);
-
-// mapDisabled();
-// formDisabled();
