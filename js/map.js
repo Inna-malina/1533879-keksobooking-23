@@ -29,7 +29,14 @@ const markerTokio = L.marker({
 
 markerTokio.on('moveend', function (evt) {
   const imputAddress = document.querySelector('#address');
-  imputAddress.placeholder = evt.target.getLatLng();
+  const coords = {
+    lat: "",
+    lng: "",
+  };
+  coords.lat = evt.target.getLatLng().lat;
+  coords.lng = evt.target.getLatLng().lng;
+  imputAddress.placeholder = `широта: ${coords.lat}, долгота: ${coords.lng}`;
+
 });
 
 
