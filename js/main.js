@@ -1,23 +1,24 @@
 import {
+  mapTokio,
+  resetButton,
+  markerHouseAll
+} from "../js/map.js";
+
+import {
   createDataBase
 } from "../js/description.js";
 
 import {
   createCard,
   renderCard,
-  renderCards
+  renderCards,
+
 } from "../js/card.js";
 
-// import {
-//   mapDisabled,
-//   formDisabled
-// } from "../js/form.js";
-
 const map = document.querySelector('.map__canvas');
-const data = createDataBase(4);
+const data = createDataBase(5);
+
 
 renderCard(map, createCard(data[0]));
-// renderCards(map, data);
 
-// mapDisabled();
-// formDisabled();
+markerHouseAll(data);

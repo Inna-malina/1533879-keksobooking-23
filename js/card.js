@@ -1,4 +1,3 @@
-// const map = document.querySelector('.map__canvas'); 
 import {
   PHOTOS
 } from "../js/database.js";
@@ -64,8 +63,6 @@ const createCard = function (item) {
   return newElement;
 };
 
-
-
 const renderCard = function (container, element) {
   container.appendChild(element);
 };
@@ -77,5 +74,6 @@ const renderCards = function (container, data) {
 export {
   createCard,
   renderCard,
-  renderCards
+  renderCards,
+  typeHouse
 };
