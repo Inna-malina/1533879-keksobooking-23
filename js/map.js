@@ -35,7 +35,7 @@ markerTokio.on('moveend', function (evt) {
   };
   coords.lat = evt.target.getLatLng().lat;
   coords.lng = evt.target.getLatLng().lng;
-  imputAddress.placeholder = `широта: ${coords.lat}, долгота: ${coords.lng}`;
+  imputAddress.placeholder = `${coords.lat}, ${coords.lng}`;
 
 });
 
