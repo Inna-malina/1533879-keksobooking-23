@@ -1,15 +1,14 @@
-// const map = document.querySelector('.map__canvas'); 
 import {
   PHOTOS
 } from "../js/database.js";
 
 import {
+  getCoordinates,
   getArrayRandElement,
   getRandomArraySlice
 } from "../js/utils.js";
 
-const templateFragment = document.querySelector('#card').content; //находим фрагмент с содержимым template
-const popup = templateFragment.querySelector('.popup');
+
 
 const typeHouse = {
   palace: 'Дворец',
@@ -19,6 +18,8 @@ const typeHouse = {
   hotel: 'Отель'
 };
 
+const templateFragment = document.querySelector('#card').content; //находим фрагмент с содержимым template
+const popup = templateFragment.querySelector('.popup');
 //функция-генератор списка доп.услуг из features
 const renderFeatures = function (container, features) {
   container.innerHTML = '';
@@ -32,9 +33,16 @@ const renderFeatures = function (container, features) {
 };
 
 //ф-ция-генератор фотки из списка photos
-const renderImages = function (container) {
+const renderImages = function (container, photos) {
   container.innerHTML = '';
-  container.src = getArrayRandElement(PHOTOS);
+
+  photos.forEach(function () {
+    const img = document.createElement('img');
+    img.classList.add('popup__photo');
+    img.style.width = "45px";
+    img.src = getArrayRandElement(PHOTOS);
+    container.appendChild(img);
+  });
 };
 
 const createCard = function (item) {
@@ -50,7 +58,7 @@ const createCard = function (item) {
   newElement.querySelector('.popup__avatar').src = item.author.avatar;
 
   renderFeatures(newElement.querySelector('.popup__features'), item.offer.features);
-  renderImages(newElement.querySelector('.popup__photo'));
+  renderImages(newElement.querySelector('.popup__photos'), item.offer.photos);
 
   return newElement;
 };
@@ -62,8 +70,10 @@ const renderCards = function (container, data) {
   data.forEach((item) => renderCard(container, createCard(item)));
 };
 
+
 export {
   createCard,
   renderCard,
-  renderCards
+  renderCards,
+  typeHouse
 };

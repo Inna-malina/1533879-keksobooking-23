@@ -5,13 +5,21 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <!-- <link rel="stylesheet" href="/leaflet/leaflet.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
   <title>Кексобукинг</title>
 </head>
 
 <body>
 
-  <main>
+  <main>f
     <div class="promo">
       <h1 class="promo__title visually-hidden">Keksobooking. Кексы по соседству</h1>
       <img src="img/keksobooking.svg" alt="Keksobooking. Кексы по соседству" width="215" height="45">
@@ -19,11 +27,10 @@
 
     <!-- Карта объявлений -->
     <section class="map">
-
-      <!-- Блок для вставки карты -->
       <div class="map__canvas" id="map-canvas">
-
       </div>
+
+
 
       <!-- Фильтрация объявлений -->
       <div class="map__filters-container">
@@ -80,7 +87,8 @@
     <!-- Форма объявления -->
     <section class="notice">
       <h2 class="notice__title">Ваше объявление</h2>
-      <form class="ad-form" method="post" enctype="multipart/form-data" autocomplete="off">
+      <form class="ad-form" action="https://23.javascript.pages.academy/keksobooking" method="post"
+        enctype="multipart/form-data" autocomplete="off">
         <fieldset class="ad-form-header">
           <legend class="ad-form-header__title">Ваша фотография (для карты)</legend>
           <div class="ad-form-header__upload">
@@ -98,7 +106,8 @@
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
           <label class="ad-form__label" for="title">Заголовок объявления</label>
-          <input id="title" name="title" type="text" placeholder="Милая, уютная квартирка в центре Токио">
+          <input id="title" name="title" type="text" placeholder="Милая, уютная квартирка в центре Токио" required
+            minlength="30" maxlength="100">
         </fieldset>
         <fieldset class="ad-form__element ad-form__element--wide">
           <label class="ad-form__label" for="address">Адрес (координаты)</label>
@@ -114,10 +123,16 @@
             <option value="palace">Дворец</option>
           </select>
         </fieldset>
+
+
+
         <fieldset class="ad-form__element">
           <label class="ad-form__label" for="price">Цена за ночь, руб.</label>
-          <input id="price" name="price" type="number" placeholder="5000">
+          <input id="price" name="price" type="number" placeholder="5000" required minlength="0">
         </fieldset>
+
+
+
         <fieldset class="ad-form__element ad-form__element--time">
           <label class="ad-form__label" for="timein">Время заезда и выезда</label>
           <select id="timein" name="timein">
@@ -131,10 +146,13 @@
             <option value="14:00">Выезд до 14</option>
           </select>
         </fieldset>
+
+
+
         <fieldset class="ad-form__element">
           <label class="ad-form__label" for="room_number">Количество комнат</label>
           <select id="room_number" name="rooms">
-            <option value="1" selected>1 комната</option>
+            <option value="1">1 комната</option>
             <option value="2">2 комнаты</option>
             <option value="3">3 комнаты</option>
             <option value="100">100 комнат</option>
@@ -143,12 +161,16 @@
         <fieldset class="ad-form__element">
           <label class="ad-form__label" for="capacity">Количество мест</label>
           <select id="capacity" name="capacity">
-            <option value="3" selected>для 3 гостей</option>
+            <option value="3">для 3 гостей</option>
             <option value="2">для 2 гостей</option>
-            <option value="1">для 1 гостя</option>
+            <option value="1" selected>для 1 гостя</option>
             <option value="0">не для гостей</option>
           </select>
         </fieldset>
+
+
+
+
         <fieldset class="ad-form__element ad-form__element--wide features">
           <legend>Удобства: Wi-Fi, кухня, парковка, стиралка, лифт, кондиционер</legend>
           <input class="features__checkbox visually-hidden" type="checkbox" name="feature" value="wifi"
@@ -253,6 +275,9 @@
     </div>
   </template>
   <script src="js/main.js" type="module"></script>
+  <script src="js/form.js"></script>
+
+  <script src="leaflet/leaflet.js"></script>
 </body>
 
 </html>
